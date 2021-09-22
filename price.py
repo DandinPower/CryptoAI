@@ -81,7 +81,7 @@ def Show(klines,Ema):
         plttime = 1
 
 def GetKlineState(Open,Close,High,Low):
-    print(Open,Close,High,Low)
+    #print(Open,Close,High,Low)
     state = ''
     if Close >= Open:
         state = 'Green'
@@ -145,7 +145,7 @@ def GetData(Coin_Money,Interval,Time_Interval,klen):
     EmaLen = klen
     Ema = GetEma(klines[1], EmaLen)
     EVolume = GetEVolume(klines[4], klen)
-    Show(klines,Ema)
+    #Show(klines,Ema)
     Open = klines[0]
     Close = klines[1]
     High = klines[2]
@@ -169,10 +169,10 @@ def GetData(Coin_Money,Interval,Time_Interval,klen):
             
             EVolume_angle = (EVolume[i] - EVolume[i-1]) / EVolume[i-1]
             Candle = GetKlineState(Open[i], Close[i], High[i], Low[i])
-            print(f'EMA:{Ema_Angle},PRICE:{Price_Angle},BullOrBear:{BullOrBear},VOLUME:{EVolume_angle},CANDLE:{Candle}')
+            #print(f'EMA:{Ema_Angle},PRICE:{Price_Angle},BullOrBear:{BullOrBear},VOLUME:{EVolume_angle},CANDLE:{Candle}')
             X.append([Ema_Angle,Price_Angle,BullOrBear,EVolume_angle,Candle])
             win = WinOrLose(Close, High, Low, i)
-            print(win)
+            #print(win)
             Y.append(win)
     X = np.array(X)
     Y = np.array(Y)
