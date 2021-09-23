@@ -156,6 +156,7 @@ def GetData(Coin_Money,Interval,Time_Interval,klen):
     Time = klines[7]
     X = [] #Ma斜率,價格斜率,價格是否大於ma,移動平均volume斜率,9跟k線狀態,k線型態
     Y = [] #是否成功
+    '''
     for i in range(len(Open)):
         if i < EmaLen:
             continue
@@ -173,7 +174,11 @@ def GetData(Coin_Money,Interval,Time_Interval,klen):
             X.append([Ema_Angle,Price_Angle,BullOrBear,EVolume_angle])
             win = WinOrLose(Close, High, Low, i)
             #print(win)
-            Y.append(win)
+            Y.append(win)'''
+    for i in range(len(Open)):
+        X.append([Open,Close,High,Low,Volume,Trade])
+        win = WinOrLose(Close, High, Low, i)
+        Y.append(win)
     X = np.array(X)
     Y = np.array(Y)
     return X,Y
