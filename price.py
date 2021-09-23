@@ -160,8 +160,8 @@ def GetData(Coin_Money,Interval,Time_Interval,klen):
         if i < EmaLen:
             continue
         else:
-            Ema_Angle = ((Ema[i] - Ema[i-1]) / Ema[i-1]) * 1000
-            Price_Angle = ((Close[i] - Close[i-1]) / Close[i-1]) * 100
+            Ema_Angle = ((Ema[i] - Ema[i-1]) / Ema[i-1]) 
+            Price_Angle = ((Close[i] - Close[i-1]) / Close[i-1]) 
             if Close[i] >= Ema[i]:
                 BullOrBear = 1
             else:
@@ -170,7 +170,7 @@ def GetData(Coin_Money,Interval,Time_Interval,klen):
             EVolume_angle = (EVolume[i] - EVolume[i-1]) / EVolume[i-1]
             Candle = GetKlineState(Open[i], Close[i], High[i], Low[i])
             #print(f'EMA:{Ema_Angle},PRICE:{Price_Angle},BullOrBear:{BullOrBear},VOLUME:{EVolume_angle},CANDLE:{Candle}')
-            X.append([Ema_Angle,Price_Angle,BullOrBear,EVolume_angle,Candle])
+            X.append([Ema_Angle,Price_Angle,BullOrBear,EVolume_angle])
             win = WinOrLose(Close, High, Low, i)
             #print(win)
             Y.append(win)
