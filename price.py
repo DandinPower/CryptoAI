@@ -176,7 +176,7 @@ def GetData(Coin_Money,Interval,Time_Interval,klen):
             #print(win)
             Y.append(win)'''
     for i in range(len(Open)):
-        X.append([Open,Close,High,Low,Volume,Trade])
+        X.append([Open[i],Close[i],High[i],Low[i],Volume[i],Trade[i]])
         win = WinOrLose(Close, High, Low, i)
         Y.append(win)
     X = np.array(X)
